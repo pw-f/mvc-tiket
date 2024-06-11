@@ -57,6 +57,18 @@ class Database {
         $this->stmt->execute();
     }
 
+    public function get()
+    {
+        $this->execute();
+        return $this->stmt->fetchAll();
+    }
+
+    public function first()
+    {
+        $this->execute();
+        return $this->stmt->fetch();
+    }
+
     public function resultSet()
     {
         $this->execute();
