@@ -37,7 +37,15 @@ $pemesanan = "CREATE TABLE pemesanan (
     tanggal_pemesanan date not null
 )";
 
-$tables = [$users, $role, $destinasi, $tiket, $pemesanan];
+$contact = "CREATE TABLE contact (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(50) NOT NULL,
+    message TEXT NOT NULL
+)";
+
+$tables = [$users, $role, $destinasi, $tiket, $pemesanan, $contact];
 
 foreach ($tables as $insert_syntax) {
     if ($connection->query($insert_syntax) === TRUE) {
