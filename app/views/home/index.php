@@ -194,7 +194,7 @@
                                 <input class="form-control" id="email" required name="email" type="email" placeholder="Your Email *" />
                             </div>
                             <div class="form-group mt-2">
-                                <input class="form-control" id="phone" required name="phone" type="number" placeholder="Your Phone *" />
+                                <input class="form-control" id="phone" required name="phone" type="tel" placeholder="Your Phone *" />
                             </div>
                         </div>
                         <div class="col-md-6">

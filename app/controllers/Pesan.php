@@ -4,7 +4,11 @@ class Pesan extends Controller
 {
     public function index() 
     {
-        echo "Pemesanan tiket wisata";
+        $data = [
+            'judul' => 'Pemesanan tiket'
+        ];
+        $this->view('template/header', $data);
+        $this->view('pesan/index', $data);
     }
 
     public function tiket($params = null) 

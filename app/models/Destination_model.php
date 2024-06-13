@@ -1,6 +1,7 @@
 <?php
 
-class Destination_model {
+class Destination_model 
+{
     protected $table = 'destinasi';
     protected $db;
 
