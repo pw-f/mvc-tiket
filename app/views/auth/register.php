@@ -1,3 +1,4 @@
+<?php Flasher::flash();?>
 <h1>halaman register mas</h1>
 <form action="<?= BASEURL ?>/register/store" method="post">
     <div class="mb-3">

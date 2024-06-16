@@ -28,6 +28,7 @@ class Home extends Controller
 
         $send = $this->model('Contact_model')->addMessage($data);
         if ($send > 0) {
+            Flasher::set('success', 'Message sent successfully');
             redirect('home/index');
         }
     }

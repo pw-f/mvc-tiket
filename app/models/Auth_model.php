@@ -1,6 +1,6 @@
 <?php
 
-class Register_model
+class Auth_model
 {
     protected $table = 'users';
     protected $db;
@@ -20,5 +20,15 @@ class Register_model
         $this->db->bind('no_telp', $data['no_telp']);
         $this->db->execute();
         return $this->db->rowCount();
+    }
+
+    public function login($data)
+    {
+        $query = "SELECT * FROM $this->table WHERE email = :email AND password = :password";
+        $this->db->query($query);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('password', $data['password']);
+        $this->db->execute();
+        return $this->db->single();
     }
 }

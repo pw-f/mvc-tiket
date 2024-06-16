@@ -6,8 +6,8 @@ $users = "CREATE TABLE users (
     id int not null primary key auto_increment,
     nama varchar(255) not null,
     password varchar(255) not null,
-    email varchar(255) not null,
-    no_telp varchar(50) not null,
+    email varchar(255) not null unique,
+    no_telp varchar(50) not null unique,
     id_role int not null
 )";
 

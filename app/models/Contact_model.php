@@ -10,6 +10,13 @@ class Contact_model
         $this->db = new Database;
     }
 
+    public function getMessages()
+    {
+        $query = "SELECT * FROM $this->table";
+        $this->db->query($query);
+        return $this->db->get();
+    }
+
     public function addMessage($data)
     {
         $query = "INSERT INTO  $this->table (name, email, phone, message) VALUES (:name, :email, :phone, :message)";
