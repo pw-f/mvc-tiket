@@ -198,17 +198,27 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
+                            <div class="form-group form-group-textarea my-sm-4 my-md-0">
                                 <textarea class="form-control" id="message" required name="message" placeholder="Your Message *"></textarea>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                        </div>
-                    </div> -->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button></div>
+                    <?php
+                        if (isset($_SESSION['flash'])) {
+                            echo <<<HTML
+                                <div class="text-center text-white mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                </div>
+                            HTML;
+                            unset($_SESSION['flash']);
+                        } else {
+                            echo <<<HTML
+                                <div class="text-center">
+                                    <button class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                                </div>
+                            HTML;
+                        }
+                    ?>
                 </form>
             </div>
         </section>

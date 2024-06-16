@@ -2,6 +2,13 @@
 
 class Register extends Controller
 {
+    public function __construct()
+    {
+        if (isset($_SESSION['user'])) {
+            redirect('');
+        }
+    }
+
     public function index()
     {
         $data['judul'] = 'Register';
@@ -11,8 +18,8 @@ class Register extends Controller
 
     public function store()
     {
-        if ($this->model('Register_model')->register($_POST) > 0) {
-            // Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+        if ($this->model('Auth_model')->register($_POST) > 0) {
+            Flasher::set('success', 'Register success, please login');
             redirect('login');
         }
     }

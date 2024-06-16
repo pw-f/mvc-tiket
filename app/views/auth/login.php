@@ -1,5 +1,6 @@
+<?php Flasher::flash();?>
 <h1>halaman login mas</h1>
-<form action="" method="post">
+<form action="<?= BASEURL ?>/login/store" method="post">
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" name="email">

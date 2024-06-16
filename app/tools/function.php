@@ -3,9 +3,8 @@
 function getLoginAccount(){
     if (isset($_SESSION['user'])) {
         return $_SESSION['user'];
-    } else {
-        return null;
     }
+    return null;
 };
 
 function dd($vars){
@@ -41,6 +40,21 @@ function logout(){
 function login_required() {
     $user = getLoginAccount();
     if ($user == null) {
+        Flasher::set('danger', 'Please login first');
+        return redirect('login');
+    }
+}
+
+function admin_only()
+{
+    $user = getLoginAccount();
+    if ($user == null) {
+        Flasher::set('danger', 'Please login first');
+        return redirect('login');
+    }
+
+    if ($user['id_role'] !== ADMIN_ROLE) {
+        Flasher::set('danger', 'You do not have permission to access this page.');
         return redirect('login');
     }
 }
@@ -65,16 +79,56 @@ function component($component, $data = []) {
 }
 
 function uploadFile($requestFile, $dir) {
+    // Periksa apakah folder tujuan ada atau tidak
     if (!is_dir($dir)) {
         mkdir($dir, 0755, true);
     }
 
-    $fileName = basename($requestFile['name']);
-    $targetFilePath = $dir . DIRECTORY_SEPARATOR . $fileName;
+    // Penamaan biar gampang
+    $fileName = $requestFile['name'];
+    $type = $requestFile['type'];
+    $size = $requestFile['size'];
+    $tmp_name = $requestFile['tmp_name'];
+    $error = $requestFile['error'];
 
-    if (move_uploaded_file($requestFile['tmp_name'], $targetFilePath)) {
+    // Cek error atau tidak
+    if ($error > 0) {
+        Flasher::set('danger', 'File not uploaded, error code: ' . $error);
+        return false;
+    }
+
+    // Cek tipe file
+    if (!in_array($type, ['image/jpg', 'image/jpeg', 'image/png'])) {
+        Flasher::set('danger', 'File type not supported');
+        return false;
+    }
+
+    // Cek ekstensi file
+    $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+    if (!in_array($ext, ['jpg', 'jpeg', 'png'])) {
+        Flasher::set('danger', 'File type not supported part 2');
+        return false;
+    }
+
+    // Cek ukuran file
+    if ($size > 5000000) {
+        Flasher::set('danger', 'File too large');
+        return false;
+    }
+
+    // Penamaan file baru
+    $newFileName = uniqid() . '.' . $ext;
+    $targetFilePath = $dir . DIRECTORY_SEPARATOR . $newFileName;
+
+    // Upload file
+    if (move_uploaded_file($tmp_name, $targetFilePath)) {
+        Flasher::set('success', 'File uploaded successfully');
         return $targetFilePath;
     } else {
+        // Dapatkan pesan error terakhir
+        $error = error_get_last();
+        echo 'Move uploaded file error: ' . $error['message'] . '<br>';
+        Flasher::set('danger', 'File not uploaded, unknown error: ' . $error['message']);
         return false;
     }
 }

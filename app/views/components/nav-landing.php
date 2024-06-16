@@ -13,7 +13,14 @@
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/login">Login</a></li>
+                        <?php if (!isset($_SESSION['user'])) :?>
+                            <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/login">Sign In</a></li>
+                        <?php elseif ($_SESSION['user']['id_role'] === 2) : ?>
+                            <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/pesanan">pesanan</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/logout">Logout</a></li>
+                        <?php else : ?>
+                            <li class="nav-item"><a class="nav-link" href="<?= BASEURL ?>/logout">Logout</a></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>

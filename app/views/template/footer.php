@@ -49,7 +49,7 @@
                                         </div>
                                         <button class="btn btn-danger btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                             <i class="fas fa-xmark me-1"></i>
-                                            Close Project
+                                            Close
                                         </button>
                                     </div>
                                 </div>
