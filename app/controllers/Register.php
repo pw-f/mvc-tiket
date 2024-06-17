@@ -11,8 +11,6 @@ class Register extends Controller
 
     public function index()
     {
-        $data['judul'] = 'Register';
-        $this->view('template/header', $data);
         $this->view('auth/register');
     }
 

@@ -1,5 +1,5 @@
 <?php Flasher::flash();?>
-<h1>halaman register mas</h1>
+<h1>halaman register nihh</h1>
 <form action="<?= BASEURL ?>/register/store" method="post">
     <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
@@ -18,4 +18,5 @@
         <input type="tel" class="form-control" id="no_telp" name="no_telp">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="<?= BASEURL ?>/login">sudah punya akun?</a>
 </form>

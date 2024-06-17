@@ -9,6 +9,7 @@ class Destination_model
     {
         $this->db = new Database;
     }
+    
     public function destination_all()
     {
         $this->db->query('SELECT * FROM ' . $this->table);

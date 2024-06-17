@@ -13,4 +13,5 @@
         <input type="text" class="form-control" name="url_img" value="<?= $data['destination']['url_img'] ?>">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="<?= BASEURL ?>/admin/destination">kembali</a>
 </form>

@@ -1,5 +1,5 @@
 <?php Flasher::flash();?>
-<h1>halaman login mas</h1>
+<h1>halaman login nihh</h1>
 <form action="<?= BASEURL ?>/login/store" method="post">
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>

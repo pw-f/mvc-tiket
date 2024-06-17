@@ -10,6 +10,10 @@ class Admin extends AdminController
         $this->render('admin/index', $data);
     }
 
+
+    /**
+     * all about destinasi start here
+     */
     public function destination()
     {
         $data = [
@@ -68,5 +72,21 @@ class Admin extends AdminController
             Flasher::set('success', 'Berhasil Menghapus Destinasi');
             redirect('admin/destination/index');
         }
+    }
+    /**
+     * end part of destination
+     */
+
+
+    /**
+     * part of tiket
+     */
+    public function tiket()
+    {
+        $data = [
+            'destination' => $this->model('Destination_model')->destination_all(),
+            'tiket' => $this->model('Tiket_model')->tiket_all()
+        ];
+        $this->render('admin/tiket/index', $data);
     }
 }
