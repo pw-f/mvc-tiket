@@ -29,13 +29,15 @@ class Admin extends AdminController
 
     public function destination_store()
     {
-        // $dir = $_SERVER['DOCUMENT_ROOT'] . '/mvc-tiket/public/assets/upload';
-        // $image = uploadFile($_FILES['url_img'], $dir);
-        // dd($image);
+        //dir itu direktori local tempat gambar nanti tersimpan
+        $dir = $_SERVER['DOCUMENT_ROOT'] . '/mvc-tiket/public/assets/upload';
+        //disini hanya akan mengembalikan nama image setelah image tersimpan
+        $imageName = uploadFile($_FILES['url_img'], $dir);
         $data = [
             'nama_destinasi' => $_POST['nama_destinasi'],
             'deskripsi' => $_POST['deskripsi'],
-            'url_img' => $_POST['url_img']
+            //url image diolah dari local menjadi localhost agar gambar bisa di tampilkan
+            'url_img' => STORAGE_IMG_UPLOAD . '/' . $imageName
         ];
         if ($this->model('Destination_model')->save($data) > 0) {
             Flasher::set('success', 'Berhasil Menambah Destinasi');
@@ -54,11 +56,19 @@ class Admin extends AdminController
 
     public function destination_update($id)
     {
+        $gambarLama = $_POST['gambar_lama'];
+        $dir = $_SERVER['DOCUMENT_ROOT'] . '/mvc-tiket/public/assets/upload';
+        if ($_FILES['url_img']['error'] === 4) {
+            $image = $gambarLama;
+        } else {
+            $imageName = uploadFile($_FILES['url_img'], $dir);
+            $image = STORAGE_IMG_UPLOAD . '/' . $imageName;
+        }
         $data = [
             'id' => $id,
             'nama_destinasi' => $_POST['nama_destinasi'],
             'deskripsi' => $_POST['deskripsi'],
-            'url_img' => $_POST['url_img']
+            'url_img' => $image
         ];
         if ($this->model('Destination_model')->update($data) > 0) {
             Flasher::set('success', 'Berhasil Mengupdate Destinasi');

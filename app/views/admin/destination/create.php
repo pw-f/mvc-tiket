@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
         <label for="url_img">Gambar</label>
-        <input type="text" class="form-control" required name="url_img">
+        <input type="file" class="form-control" required name="url_img">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     <a href="<?= BASEURL ?>/admin/destination">kembali</a>

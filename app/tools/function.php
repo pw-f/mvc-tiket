@@ -123,7 +123,8 @@ function uploadFile($requestFile, $dir) {
     // Upload file
     if (move_uploaded_file($tmp_name, $targetFilePath)) {
         Flasher::set('success', 'File uploaded successfully');
-        return $targetFilePath;
+        //mengembalikan nama file agar diolah di controller menjadi localhost bukan local directory
+        return $newFileName;
     } else {
         // Dapatkan pesan error terakhir
         $error = error_get_last();
