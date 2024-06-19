@@ -16,7 +16,7 @@
           <div class="col-md-6 right">
             <div class="input-box">
                <form action="<?= BASEURL ?>/register/store" method="post">
-                <header>Login account</header>
+                <header>Register an account</header>
                 <div class="mb-2">
                     <?php Flasher::flash(); ?>    
                 </div>
