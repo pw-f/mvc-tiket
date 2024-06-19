@@ -39,23 +39,23 @@ if ($connection->query($destinasi_seeder) === TRUE) {
     echo "Error inserting data into table: " . $connection->error . "<br>";
 }
 
-$tiket_seeder = "INSERT INTO tiket (id_destinasi, nama_tiket, harga) VALUES
-    (1, 'Beach Day Pass', 10000),
-    (1, 'Beach Night Pass', 15000),
-    (2, 'Mountain Day Pass', 35000),
-    (2, 'Mountain Weekend Pass', 40000),
-    (3, 'Ubud Waterfall Day Pass', 120000),
-    (3, 'Ubud Waterfall Weekend Pass', 150000),
-    (4, 'GWK Day Pass', 10000),
-    (4, 'GWK Weekend Pass', 15000),
-    (5, 'Kebun Raya Day Pass', 35000),
-    (5, 'Kebun Raya Weekend Pass', 50000),
-    (6, 'Taman Ujung Day Pass', 35000),
-    (6, 'Taman Ujung Weekend Pass', 50000),
-    (7, 'Balizoo Normal Pass', 125000),
-    (7, 'Tiket Masuk + Elephant Expedition', 495000),
-    (8, 'Domestic Pass', 140000),
-    (8, 'International Pass', 385000)";
+$tiket_seeder = "INSERT INTO tiket (id_destinasi, nama_tiket, stok_tiket, harga) VALUES
+    (1, 'Beach Day Pass', 75, 10000),
+    (1, 'Beach Night Pass', 75, 15000),
+    (2, 'Mountain Day Pass', 75, 35000),
+    (2, 'Mountain Weekend Pass', 75, 40000),
+    (3, 'Ubud Waterfall Day Pass', 75, 120000),
+    (3, 'Ubud Waterfall Weekend Pass', 75, 150000),
+    (4, 'GWK Day Pass', 75, 10000),
+    (4, 'GWK Weekend Pass', 75, 15000),
+    (5, 'Kebun Raya Day Pass', 75, 35000),
+    (5, 'Kebun Raya Weekend Pass', 75, 50000),
+    (6, 'Taman Ujung Day Pass', 75, 35000),
+    (6, 'Taman Ujung Weekend Pass', 75, 50000),
+    (7, 'Balizoo Normal Pass', 75, 125000),
+    (7, 'Tiket Masuk + Elephant Expedition', 75, 495000),
+    (8, 'Domestic Pass', 75, 140000),
+    (8, 'International Pass', 75, 385000)";
 
 if ($connection->query($tiket_seeder) === TRUE) {
     echo "Data inserted successfully into table: tiket<br>";
@@ -63,9 +63,17 @@ if ($connection->query($tiket_seeder) === TRUE) {
     echo "Error inserting data into table: " . $connection->error . "<br>";
 }
 
-$pemesanan_seeder = "INSERT INTO pemesanan (id_users, id_tiket, tanggal_pemesanan) VALUES
-    (2, 5, '2024-06-10'),
-    (3, 2, '2024-06-11')";
+$pemesanan_seeder = "INSERT INTO pemesanan (id_users, id_tiket, bukti_bayar, status_tiket, tanggal_pemesanan) VALUES
+    (2, 14, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'tervalidasi', '2024-06-10'),
+    (3, 2, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'diproses', '2024-06-11'),
+    (3, 7, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'ditolak', '2024-06-12'),
+    (2, 1, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'tervalidasi', '2024-06-13'),
+    (3, 3, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'diproses', '2024-06-14'),
+    (3, 6, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'ditolak', '2024-06-15'),
+    (2, 4, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'tervalidasi', '2024-06-16'),
+    (2, 8, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'diproses', '2024-06-17'),
+    (3, 16, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'ditolak', '2024-06-18')";
+
 
 if ($connection->query($pemesanan_seeder) === TRUE) {
     echo "Data inserted successfully into table: pemesanan<br>";

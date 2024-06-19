@@ -27,6 +27,7 @@ $tiket = "CREATE TABLE tiket (
     id int not null primary key auto_increment,
     id_destinasi int not null,
     nama_tiket varchar(255) not null,
+    stok_tiket int not null,
     harga int not null
 )";
 
@@ -34,6 +35,8 @@ $pemesanan = "CREATE TABLE pemesanan (
     id int not null primary key auto_increment,
     id_users int not null,
     id_tiket int not null,
+    bukti_bayar varchar(255) not null,
+    status_tiket ENUM('tervalidasi', 'diproses', 'ditolak') not null,
     tanggal_pemesanan date not null
 )";
 

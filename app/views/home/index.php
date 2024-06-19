@@ -42,7 +42,7 @@
                 </div>
             </div>
         </section>
-        <!-- Portfolio Grid-->
+        <!-- Destination Grid-->
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
@@ -50,26 +50,45 @@
                     <h3 class="section-subheading text-muted">Lihat destinasi wisata yang menarik di Bali dengan membeli tiket wisata langsung di sini.</h3>
                 </div>
                 <div class="row">
-                    <?php $index = 1; foreach ($data['destinasi'] as $dest) : ?>
-                        <div class="col-lg-4 col-sm-6 mb-4">
-                            <div class="portfolio-item">
-                                <a class="portfolio-link" data-bs-toggle="modal" href="#destination<?= $index ?>">
-                                    <div class="portfolio-hover">
-                                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    <?php if (empty($data['destinasi'])): ?>
+                        <div class="col-12 text-center">
+                            <p>Oops data destinasi sedang liburan~</p>
+                        </div>
+                    <?php else: ?>
+                        <?php 
+                        $index = 1; 
+                        foreach ($data['destinasi'] as $dest) : 
+                            if ($index > 6) break;
+                        ?>
+                            <div class="col-lg-4 col-sm-6 mb-4">
+                                <div class="portfolio-item">
+                                    <a class="portfolio-link" data-bs-toggle="modal" href="#destination<?= $index ?>">
+                                        <div class="portfolio-hover">
+                                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img style="object-fit: cover; width: 100%; height: 250px;" class="img-fluid" src="<?= $dest['url_img'] ?>" alt="..." />
+                                    </a>
+                                    <div class="portfolio-caption">
+                                        <div class="portfolio-caption-heading"><?= $dest['nama_destinasi'] ?></div>
+                                        <!-- <div class="portfolio-caption-subheading text-muted">Illustration</div> -->
                                     </div>
-                                    <img style="object-fit: cover; width: 100%; height: 250px;" class="img-fluid" src="<?= $dest['url_img'] ?>" alt="..." />
-                                </a>
-                                <div class="portfolio-caption">
-                                    <div class="portfolio-caption-heading"><?= $dest['nama_destinasi'] ?></div>
-                                    <!-- <div class="portfolio-caption-subheading text-muted">Illustration</div> -->
                                 </div>
                             </div>
-                        </div>
-                    <?php $index++; endforeach; ?>
+                        <?php 
+                            $index++; 
+                        endforeach; 
+                        ?>
+                        <?php if (count($data['destinasi']) > 6): ?>
+                            <div class="col-12 text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase" href="<?= BASEURL ?>/destinasi">Lihat destinasi lengkap <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
-        <!-- About-->
+
+        <!-- Flow tiket -->
         <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
@@ -131,7 +150,7 @@
                 </ul>
             </div>
         </section>
-        <!-- Team-->
+        <!-- Team -->
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">

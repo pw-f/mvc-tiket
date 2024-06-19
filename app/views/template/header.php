@@ -18,4 +18,4 @@
     </head>
     <body id="page-top">
         <!-- nav component -->
-        <?= $data['nav'] ?>
+        <?= component('nav-landing') ?>

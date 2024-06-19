@@ -24,12 +24,11 @@
                         <div class="close-modal" data-bs-dismiss="modal"><img src="<?= BASEURL ?>/assets/img/close-icon.svg" alt="Close modal" /></div>
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-lg-8">
+                                <div class="col-lg-10">
                                     <div class="modal-body">
-                                        <!-- Project details-->
-                                        <h2 class="text-uppercase"><?= $dest['nama_destinasi'] ?></h2>
                                         <!-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> -->
                                         <img class="img-fluid d-block mx-auto" src="<?= $dest['url_img'] ?>" alt="..." />
+                                        <h2 class="text-uppercase my-3"><?= $dest['nama_destinasi'] ?></h2>
                                         <p><?= $dest['deskripsi'] ?></p>
                                         <!-- <ul class="list-inline">
                                             <li>
@@ -42,15 +41,15 @@
                                             </li>
                                         </ul> -->
                                         <div class="my-2">
-                                            <a class="btn btn-primary btn-xl text-uppercase" href="<?= BASEURL ?>/pesan/tiket/<?= $dest['id'] ?>">
+                                            <a class="btn btn-dark btn-xl text-uppercase" href="<?= BASEURL ?>/pesan/tiket/<?= $dest['id'] ?>">
                                                 <i class="fas fa-plus me-1"></i>
-                                                Pesan Tiketnya
+                                                Lihat Detail Tiket
                                             </a>
                                         </div>
-                                        <button class="btn btn-danger btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <!-- <button class="btn btn-danger btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                             <i class="fas fa-xmark me-1"></i>
                                             Close
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
                             </div>
