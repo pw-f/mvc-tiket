@@ -30,7 +30,7 @@ class Flasher
             $message = $_SESSION['flash']['message'];
 
             echo <<<html
-                <div class="alert alert-$type">$message</div>
+                <div class="alert alert-alt alert-$type">$message</div>
             html;
 
             unset($_SESSION['flash']);

@@ -99,20 +99,20 @@ function uploadFile($requestFile, $dir) {
 
     // Cek tipe file
     if (!in_array($type, ['image/jpg', 'image/jpeg', 'image/png'])) {
-        Flasher::set('danger', 'File type not supported');
+        Flasher::set('danger', 'File type not supported (image/jpg, image/jpeg, image/png)');
         return false;
     }
 
     // Cek ekstensi file
     $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
     if (!in_array($ext, ['jpg', 'jpeg', 'png'])) {
-        Flasher::set('danger', 'File type not supported part 2');
+        Flasher::set('danger', 'File extension not supported (jpg, jpeg, png)');
         return false;
     }
 
     // Cek ukuran file
     if ($size > 5000000) {
-        Flasher::set('danger', 'File too large');
+        Flasher::set('danger', 'File too large max size is 5mb');
         return false;
     }
 

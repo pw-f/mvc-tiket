@@ -25,7 +25,7 @@
                     <label for="Nama">Nama</label> 
                 </div> 
                 <div class="input-field">
-                    <input type="text" class="input" id="no_telp" name="no_telp" required>
+                    <input type="tel" class="input" id="no_telp" name="no_telp" required>
                     <label for="no_telp">Nomor Telpon</label> 
                 </div> 
                 <div class="input-field">

@@ -15,4 +15,12 @@ class Tiket_model
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
+
+    public function tiket_by_destination($id)
+    {
+        $query = "SELECT * FROM " . $this->table . " WHERE id_destinasi = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->get();
+    }
 }

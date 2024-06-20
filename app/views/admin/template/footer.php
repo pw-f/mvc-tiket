@@ -1,26 +1,50 @@
+        </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="https://github.com/pw-f/" target="_blank">Gfpw</a> 2024</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
 
-<div id="search">
-      <button type="button" class="close">×</button>
-      <form>
-        <input type="search" value="" placeholder="type keyword(s) here" />
-        <button type="submit" class="btn btn-primary">Search</button>
-      </form>
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
     </div>
-    <!-- jquery vendor -->
-    <script src="<?= BASEURL ?>/assets/js/lib/jquery.min.js"></script>
-    <script src="<?= BASEURL ?>/assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="<?= BASEURL ?>/assets/js/lib/menubar/sidebar.js"></script>
-    <script src="<?= BASEURL ?>/assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-    <script src="<?= BASEURL ?>/assets/js/lib/bootstrap.min.js"></script>
-    <!-- bootstrap -->
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
 
-    <script src="<?= BASEURL ?>/assets/js/lib/morris-chart/raphael-min.js"></script>
-    <script src="<?= BASEURL ?>/assets/js/lib/morris-chart/morris.js"></script>
-    <script src="<?= BASEURL ?>/assets/js/lib/morris-chart/morris-init.js"></script>
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="<?= BASEURL ?>/vendor/global/global.min.js"></script>
+    <script src="<?= BASEURL ?>/js/quixnav-init.js"></script>
+    <script src="<?= BASEURL ?>/js/custom.min.js"></script>
+    
 
-    <script src="<?= BASEURL ?>/assets/js/scripts.js"></script>
-    <!-- scripit init-->
-  </body>
+
+    <!-- Toastr -->
+    <script src="<?= BASEURL ?>/vendor/toastr/js/toastr.min.js"></script>
+
+    <!-- All init script -->
+    <script src="<?= BASEURL ?>/js/plugins-init/toastr-init.js"></script>
+
+</body>
+
 </html>
