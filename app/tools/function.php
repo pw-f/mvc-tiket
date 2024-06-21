@@ -93,7 +93,7 @@ function uploadFile($requestFile, $dir) {
 
     // Cek error atau tidak
     if ($error > 0) {
-        Flasher::set('danger', 'File not uploaded, error code: ' . $error);
+        Flasher::set('danger', 'File upload failed with message: please fill all the fields');
         return false;
     }
 
