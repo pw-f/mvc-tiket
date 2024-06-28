@@ -10,5 +10,9 @@
             <p><?= $ticket['stok_tiket'] ?></p>
             <p><?= $ticket['harga'] ?></p>
         </div>
+        <div>
+            <a href="<?= BASEURL ?>/admin/tiket_edit/<?= $ticket['id'] ?>" class="btn btn-primary">edit</a>
+            <a href="<?= BASEURL ?>/admin/tiket_delete/<?= $ticket['id'] ?>" onclick="return confirm('yakin mau hapus tiket?')" class="btn btn-danger">hapus</a>
+        </div>
     <?php endforeach; ?>
 </div>

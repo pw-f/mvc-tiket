@@ -1,5 +1,5 @@
+<?php Flasher::flash() ?>
 <div class="row">
-    <?php Flasher::flash() ?>
     <?php foreach ($data['destination'] as $item) : ?>
         <div class="col-xl-4 col-xxl-6 col-lg-6 col-sm-6">
             <div class="card mb-3">

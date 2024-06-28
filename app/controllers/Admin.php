@@ -115,9 +115,6 @@ class Admin extends AdminController
             'tiket' => $this->model('Tiket_model')->tiket_by_destination($param)
         ];
         $this->render('admin/tiket/detail', $data);
-        // $this->view('admin/template/header');
-        // $this->view('admin/tiket/detail', $data);
-        // $this->view('admin/template/footer');
     }
 
     public function tiket_create($id)
@@ -127,4 +124,56 @@ class Admin extends AdminController
         ];
         $this->render('admin/tiket/create', $data);
     }
+
+    public function tiket_store()
+    {
+        // dd($_POST);
+        if ($this->model('Tiket_model')->save($_POST) > 0) {
+            Flasher::set('success', 'Berhasil Menambah Tiket');
+            return redirect('admin/tiket/index');
+        }
+    }
+
+    public function tiket_edit($id)
+    {
+        $tiket = [
+            'tiket' => $this->model('Tiket_model')->detail($id),
+        ];
+        $destinasi = [
+            'destination' => $this->model('Destination_model')->detail($tiket['tiket']['id_destinasi'])
+        ];
+        $data = array_merge($tiket, $destinasi);
+        $this->render('admin/tiket/edit', $data);
+    }
+
+    public function tiket_update()
+    {
+        if ($this->model('Tiket_model')->update($_POST) > 0) {
+            Flasher::set('success', 'Berhasil Mengupdate Tiket');
+            return redirect('admin/tiket/index');
+        }
+    }
+
+    public function tiket_delete($id)
+    {
+        if($this->model('Tiket_model')->delete($id) > 0) {
+            Flasher::set('success', 'Berhasil Menghapus Tiket');
+            redirect('admin/tiket/index');
+        }
+    }
+    /**
+     * end part of tiket
+     */
+
+
+    /**
+     * part of pemesanan
+     */
+    public function pemesanan()
+    {
+        $this->render('admin/pemesanan/index');
+    }
+    /**
+     * end part of pemesanan
+     */
 }

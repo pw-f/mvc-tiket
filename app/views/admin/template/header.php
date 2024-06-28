@@ -42,7 +42,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="<?= BASEURL ?>/" class="brand-logo">
                 <img class="logo-abbr" src="<?= BASEURL ?>/assets/img/navbar-logo.svg" alt="logo">
                 <img class="brand-title" src="<?= BASEURL ?>/assets/img/navbar-logo.svg" alt="title-logo">
             </a>
