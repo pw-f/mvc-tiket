@@ -24,6 +24,13 @@ class Tiket_model
         return $this->db->get();
     }
 
+    // public function destination_by_id_tiket($id)
+    // {
+    //     $this->db->query('SELECT (id_destinasi) FROM ' . $this->table . ' WHERE id = :id');
+    //     $this->db->bind('id', $id);
+    //     return $this->db->single();
+    // }
+
     public function detail($id)
     {
         $query = "SELECT * FROM " . $this->table . " WHERE id = :id";

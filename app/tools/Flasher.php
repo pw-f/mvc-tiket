@@ -22,6 +22,13 @@ class Flasher
 
         http_response_code($statusCode);
     }
+
+    public static function set_user($message)
+    {
+        $_SESSION['flash_user'] = [
+            'message' => $message
+        ];
+    }
     
     public static function flash()
     {
@@ -34,6 +41,17 @@ class Flasher
             html;
 
             unset($_SESSION['flash']);
+        }
+    }
+
+    public static function flash_user()
+    {
+        if (isset($_SESSION['flash_user'])) {
+            $message = $_SESSION['flash_user']['message'];
+
+            echo "<script>alert('$message')</script>";
+
+            unset($_SESSION['flash_user']);
         }
     }
 

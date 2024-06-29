@@ -31,4 +31,13 @@ class Auth_model
         $this->db->execute();
         return $this->db->single();
     }
+
+    public function user_by_id($user_id)
+    {
+        $query = "SELECT * FROM $this->table WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $user_id);
+        $this->db->execute();
+        return $this->db->single();
+    }
 }

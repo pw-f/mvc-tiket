@@ -4,6 +4,7 @@ require "connection.php";
 
 $relasi_pemesanan = "ALTER TABLE pemesanan
     ADD FOREIGN KEY (id_users) REFERENCES users(id),
+    ADD FOREIGN KEY (id_destinasi) REFERENCES destinasi(id),
     ADD FOREIGN KEY (id_tiket) REFERENCES tiket(id);
 ";
 

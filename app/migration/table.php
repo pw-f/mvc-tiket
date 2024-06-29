@@ -34,10 +34,13 @@ $tiket = "CREATE TABLE tiket (
 $pemesanan = "CREATE TABLE pemesanan (
     id int not null primary key auto_increment,
     id_users int not null,
+    id_destinasi int not null,
     id_tiket int not null,
-    bukti_bayar varchar(255) not null,
-    status_tiket ENUM('tervalidasi', 'diproses', 'ditolak') not null,
-    tanggal_pemesanan date not null
+    qty int not null,
+    total_price int not null,
+    bukti_bayar varchar(255) null,
+    status_tiket ENUM('diterima', 'menunggu pembayaran', 'dibatalkan') null,
+    tanggal_pemesanan datetime null
 )";
 
 $contact = "CREATE TABLE contact (

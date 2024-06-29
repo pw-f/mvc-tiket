@@ -171,7 +171,26 @@ class Admin extends AdminController
      */
     public function pemesanan()
     {
-        $this->render('admin/pemesanan/index');
+        $data = [
+            'pemesanan' => $this->model('Pemesanan_model')->getAll()
+        ];
+        $this->render('admin/pemesanan/index', $data);
+    }
+
+    public function pemesanan_detail($id)
+    {
+        $data = [
+            'pemesanan' => $this->model('Pemesanan_model')->detail($id)
+        ];
+        $this->render('admin/pemesanan/detail', $data);
+    }
+
+    public function update()
+    {
+        if ($this->model('Pemesanan_model')->update($_POST) > 0) {
+            Flasher::set('success', 'Berhasil Mengupdate Pemesanan');
+            return redirect('admin/pemesanan');
+        }
     }
     /**
      * end part of pemesanan

@@ -237,6 +237,7 @@
                                 </div>
                             HTML;
                         }
+                        Flasher::flash_user();
                     ?>
                 </form>
             </div>

@@ -63,16 +63,8 @@ if ($connection->query($tiket_seeder) === TRUE) {
     echo "Error inserting data into table: " . $connection->error . "<br>";
 }
 
-$pemesanan_seeder = "INSERT INTO pemesanan (id_users, id_tiket, bukti_bayar, status_tiket, tanggal_pemesanan) VALUES
-    (2, 14, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'tervalidasi', '2024-06-10'),
-    (3, 2, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'diproses', '2024-06-11'),
-    (3, 7, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'ditolak', '2024-06-12'),
-    (2, 1, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'tervalidasi', '2024-06-13'),
-    (3, 3, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'diproses', '2024-06-14'),
-    (3, 6, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'ditolak', '2024-06-15'),
-    (2, 4, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'tervalidasi', '2024-06-16'),
-    (2, 8, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'diproses', '2024-06-17'),
-    (3, 16, 'https://i.pinimg.com/564x/f1/af/21/f1af21b9de11c75a5cb8498836d99d02.jpg', 'ditolak', '2024-06-18')";
+$pemesanan_seeder = "INSERT INTO pemesanan (id_users, id_destinasi, id_tiket, qty, total_price, bukti_bayar, status_tiket, tanggal_pemesanan) VALUES
+    (2, 1, 2, 2, 30000, null, 'menunggu pembayaran', now())";
 
 
 if ($connection->query($pemesanan_seeder) === TRUE) {
