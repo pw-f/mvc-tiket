@@ -13,9 +13,10 @@ if ($connection->query($role_seeder) === TRUE) {
 }
 
 $users_seeder = "INSERT INTO users (nama, password, email, no_telp, id_role) VALUES
-    ('Gua Admin', 'password', 'admin@gmail.com', '087889287608', 1),
+    ('Admin', 'admin', 'admin@gmail.com', '087889287608', 1),
     ('Mas User', 'password', 'user1@gmail.com', '08987654321', 2),
-    ('Mba User', 'password', 'user2@gmail.com', '08987643221', 2)";
+    ('Mba User', 'password', 'user2@gmail.com', '08987643221', 2),
+    ('palguna', 'password', 'pakegbakun@gmail.com', '085829376675', 2)";
 
 if ($connection->query($users_seeder) === TRUE) {
     echo "Data inserted successfully into table: users<br>";
@@ -42,8 +43,8 @@ if ($connection->query($destinasi_seeder) === TRUE) {
 $tiket_seeder = "INSERT INTO tiket (id_destinasi, nama_tiket, stok_tiket, harga) VALUES
     (1, 'Beach Day Pass', 75, 10000),
     (1, 'Beach Night Pass', 75, 15000),
-    (2, 'Mountain Day Pass', 75, 35000),
-    (2, 'Mountain Weekend Pass', 75, 40000),
+    (2, 'Monkey Day Pass', 75, 35000),
+    (2, 'Forest Weekend Pass', 75, 40000),
     (3, 'Ubud Waterfall Day Pass', 75, 120000),
     (3, 'Ubud Waterfall Weekend Pass', 75, 150000),
     (4, 'GWK Day Pass', 75, 10000),

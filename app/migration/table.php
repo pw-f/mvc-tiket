@@ -39,7 +39,7 @@ $pemesanan = "CREATE TABLE pemesanan (
     qty int not null,
     total_price int not null,
     bukti_bayar varchar(255) null,
-    status_tiket ENUM('diterima', 'menunggu pembayaran', 'dibatalkan') null,
+    status_tiket ENUM('diterima', 'menunggu pembayaran', 'dibatalkan', 'diproses') null,
     tanggal_pemesanan datetime null
 )";
 

@@ -56,19 +56,27 @@ class Pemesanan_model
         $this->db->bind('bukti_bayar', null);
         $this->db->bind('status_tiket', "menunggu pembayaran");
         $this->db->execute();
-        return $this->db->rowCount();
+        return $this->db->lastInsertId();
     }
 
     public function add_bukti_bayar($data)
     {
-        $query = "UPDATE $this->table SET
-                    bukti_bayar = :bukti_bayar
-                  WHERE id = :id";
+        $query = "UPDATE pemesanan SET bukti_bayar = :bukti_bayar, status_tiket = :status_tiket WHERE id = :id";
         $this->db->query($query);
         $this->db->bind('id', $data['id']);
+        $this->db->bind('status_tiket', "diproses");
         $this->db->bind('bukti_bayar', $data['bukti_bayar']);
         $this->db->execute();
         return $this->db->rowCount();
     }
 
+    public function batal_status($id)
+    {
+        $query = "UPDATE pemesanan SET status_tiket = :status_tiket WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        $this->db->bind('status_tiket', "dibatalkan");
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

@@ -94,12 +94,14 @@ function uploadFile($requestFile, $dir) {
     // Cek error atau tidak
     if ($error > 0) {
         Flasher::set('danger', 'File upload failed with message: please fill all the fields');
+        Flasher::set_user('File upload failed with message: please fill all the fields');
         return false;
     }
 
     // Cek tipe file
     if (!in_array($type, ['image/jpg', 'image/jpeg', 'image/png'])) {
         Flasher::set('danger', 'File type not supported (image/jpg, image/jpeg, image/png)');
+        Flasher::set_user('File type not supported (image/jpg, image/jpeg, image/png)');
         return false;
     }
 
@@ -107,12 +109,14 @@ function uploadFile($requestFile, $dir) {
     $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
     if (!in_array($ext, ['jpg', 'jpeg', 'png'])) {
         Flasher::set('danger', 'File extension not supported (jpg, jpeg, png)');
+        Flasher::set_user('File extension not supported (jpg, jpeg, png)');
         return false;
     }
 
     // Cek ukuran file
     if ($size > 5000000) {
         Flasher::set('danger', 'File too large max size is 5mb');
+        Flasher::set_user('File too large max size is 5mb');
         return false;
     }
 
@@ -123,6 +127,7 @@ function uploadFile($requestFile, $dir) {
     // Upload file
     if (move_uploaded_file($tmp_name, $targetFilePath)) {
         Flasher::set('success', 'File uploaded successfully');
+        Flasher::set_user('File uploaded successfully');
         //mengembalikan nama file agar diolah di controller menjadi localhost bukan local directory
         return $newFileName;
     } else {
@@ -130,6 +135,7 @@ function uploadFile($requestFile, $dir) {
         $error = error_get_last();
         echo 'Move uploaded file error: ' . $error['message'] . '<br>';
         Flasher::set('danger', 'File not uploaded, unknown error: ' . $error['message']);
+        Flasher::set_user('File not uploaded, unknown error: ' . $error['message']);
         return false;
     }
 }
