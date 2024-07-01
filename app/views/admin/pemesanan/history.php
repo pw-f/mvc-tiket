@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                             <?php $i = 1; ?>
-                            <?php foreach ($data['pemesanan'] as $item) : ?>
+                            <?php foreach ($data['history_pemesanan'] as $item) : ?>
                                 <tr>
                                     <th scope="row"><?= $i ?></th>
                                     <?php $i++; ?>

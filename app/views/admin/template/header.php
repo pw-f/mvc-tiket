@@ -115,6 +115,8 @@
                                 class="nav-text">Tiket</span></a></li>
                     <li><a href="<?= BASEURL ?>/admin/pemesanan" aria-expanded="false"><i class="mdi mdi-mail"></i><span
                                 class="nav-text">Pemesanan</span></a></li>
+                    <li><a href="<?= BASEURL ?>/admin/history_pemesanan" aria-expanded="false"><i class="mdi mdi-clock"></i><span
+                                class="nav-text">History Pemesanan</span></a></li>
                 </ul>
             </div>
         </div>

@@ -16,7 +16,12 @@ $relasi_users = "ALTER TABLE users
     ADD FOREIGN KEY (id_role) REFERENCES role(id);
 ";
 
-$relations = [$relasi_pemesanan, $relasi_tiket, $relasi_users];
+$tiket_dipesan = "ALTER TABLE tiket_dipesan
+    ADD FOREIGN KEY (id_pemesanan) REFERENCES pemesanan(id)
+";
+
+
+$relations = [$relasi_pemesanan, $relasi_tiket, $relasi_users, $tiket_dipesan];
 
 foreach ($relations as $relasi) {
     if ($connection->query($relasi) === TRUE) {

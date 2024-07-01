@@ -331,7 +331,6 @@ class Admin extends AdminController
             
             $message .= "<p>$code</p>";
             $message .= "<img src='$qrCodeSrc' alt='$code' /><br />";
-            $message .= "<img src='https://drive.google.com/drive/u/4/folders/1mNfU5y_cXyNmvWGZ9YEN-JZxt1KIbyGW' alt='$code' /><br />";
         }
 
         $mailer = new Mailer();
@@ -339,7 +338,7 @@ class Admin extends AdminController
         $to = $email;
         $body = $message;
 
-        dd($body);
+        // dd($body);
 
         if ($mailer->send($to, $subject, $body)) {
             Flasher::set_user('Pemesanan berhasil!, Email sent successfully!');
@@ -351,5 +350,25 @@ class Admin extends AdminController
     }
     /**
      * end part of pemesanan
+     */
+
+     /**
+     * end part of history pemesanan
+     */
+    public function history_pemesanan()
+    {
+        $history_pemesanan = $this->model('Tiket_dipesan_model')->getAll();
+        // $pemesanan = $this->model('Tiket_dipesan_model')->detail();
+        // $users = $this->model('Auth_model')->user_by_id($pemesanan['id_users']);
+        $data = [
+            'history_pemesanan' => $history_pemesanan,
+            // 'user' => $users
+        ];
+        dd($data);
+        
+        $this->render('admin/pemesanan/history', $data);
+    }
+    /**
+     * end part of history pemesanan
      */
 }

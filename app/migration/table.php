@@ -48,7 +48,7 @@ $tiket_dipesan = "CREATE TABLE tiket_dipesan (
     id_pemesanan int not null,
     kode_tiket varchar(255) not null,
     local_url_qr varchar(255) null,
-    google_drive_file_id varchar(255) null
+    link_qr varchar(255) null
 )";
 
 $contact = "CREATE TABLE contact (
