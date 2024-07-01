@@ -43,6 +43,14 @@ $pemesanan = "CREATE TABLE pemesanan (
     tanggal_pemesanan datetime null
 )";
 
+$tiket_dipesan = "CREATE TABLE tiket_dipesan (
+    id int not null primary key auto_increment,
+    id_pemesanan int not null,
+    kode_tiket varchar(255) not null,
+    local_url_qr varchar(255) null,
+    google_drive_file_id varchar(255) null
+)";
+
 $contact = "CREATE TABLE contact (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -51,7 +59,7 @@ $contact = "CREATE TABLE contact (
     message TEXT NOT NULL
 )";
 
-$tables = [$users, $role, $destinasi, $tiket, $pemesanan, $contact];
+$tables = [$users, $role, $destinasi, $tiket, $pemesanan, $tiket_dipesan, $contact];
 
 foreach ($tables as $insert_syntax) {
     if ($connection->query($insert_syntax) === TRUE) {

@@ -54,6 +54,7 @@ Flasher::flash_user();
                         </div>
                         <div class="mt-3">
                             <button class="w-100 py-2 btn btn-lg btn-success">Submit</button>
+                            <a href="<?= BASEURL ?>" class="w-100 py-2 btn btn-lg btn-danger mt-2" role="button">Bayar Nanti</a>
                         </div>
                     </div>
 

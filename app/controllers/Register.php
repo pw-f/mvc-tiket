@@ -16,6 +16,10 @@ class Register extends Controller
 
     public function store()
     {
+        if($this->model('Auth_model')->checkEmail($_POST['email'])) {
+            Flasher::set('danger', 'Email already used');
+            redirect('register');
+        }
         if ($this->model('Auth_model')->register($_POST) > 0) {
             Flasher::set('success', 'Register success, please login');
             redirect('login');

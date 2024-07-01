@@ -72,4 +72,12 @@ class Tiket_model
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function reduceStock($id_tiket, $qty)
+    {
+        $this->db->query('UPDATE ' . $this->table . ' SET stok_tiket = stok_tiket - :qty WHERE id = :id');
+        $this->db->bind('qty', $qty);
+        $this->db->bind('id', $id_tiket);
+        $this->db->execute();
+    }
 }

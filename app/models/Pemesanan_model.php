@@ -79,4 +79,14 @@ class Pemesanan_model
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function update_status($data)
+    {
+        $query = "UPDATE pemesanan SET status_tiket = :status_tiket WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $data['pemesanan']['id']);
+        $this->db->bind('status_tiket', $data['status_tiket']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }
