@@ -160,7 +160,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="<?= BASEURL ?>/assets/img/team/1.jpg" alt="..." />
+                            <img class="mx-auto rounded-circle" src="<?= BASEURL ?>/assets/img/team/palgun.jpg" alt="..." />
                             <h4>I Made Palguna Widiarsana</h4>
                             <p class="text-muted">NIM : 2301010364</p>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="I Made Palguna Widiarsana Github Profile"><i class="fab fa-github"></i></a>
