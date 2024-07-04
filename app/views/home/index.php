@@ -92,48 +92,48 @@
         <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Alur Pemesanan Tiket</h2>
-                    <h3 class="section-subheading text-muted">login dulu</h3>
+                    <h2 class="section-heading text-uppercase">Alur Pemesanan Tiket Wisata</h2>
+                    <h3 class="section-subheading text-muted">yuk, di simak dulu!</h3>
                 </div>
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="<?= BASEURL ?>/assets/img/about/1.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4>Tahap 1</h4>
+                                <h4 class="subheading">Login atau Registrasi</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Pengguna harus login ke akun mereka atau mendaftar jika belum memiliki akun untuk memulai pembelian tiket.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="<?= BASEURL ?>/assets/img/about/2.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4>Tahap 2</h4>
+                                <h4 class="subheading">Pemesanan Tiket</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Pengguna dapat memilih destinasi yang diinginkan lalu memilih jenis tiket yang ingin dibeli dan jumlah tiket yang ingin di beli.</p></div>
                         </div>
                     </li>
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="<?= BASEURL ?>/assets/img/about/3.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4>Tahap 3</h4>
+                                <h4 class="subheading">Pembayaran</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Pengguna melakukan pembayaran dengan mengklik tombol "Confirm and Pay". Mereka akan diarahkan ke halaman pembayaran dalam kode QR dan kirim bukti bayar, lalu tunggu validasi oleh admin</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="<?= BASEURL ?>/assets/img/about/4.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4>Tahap 4</h4>
+                                <h4 class="subheading">Selesai</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Proses pembelian tiket selesai setelah tiket diverifikasi oleh admin, dan pengguna dapat menggunakan tiket tersebut untuk masuk ke tempat wisata.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
