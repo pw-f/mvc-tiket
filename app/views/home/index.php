@@ -163,8 +163,8 @@
                             <img class="mx-auto rounded-circle" src="<?= BASEURL ?>/assets/img/team/palgun.jpg" alt="..." />
                             <h4>I Made Palguna Widiarsana</h4>
                             <p class="text-muted">NIM : 2301010364</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="I Made Palguna Widiarsana Github Profile"><i class="fab fa-github"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="I Made Palguna Widiarsana Instagram Profile"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/Palguna1121" aria-label="I Made Palguna Widiarsana Github Profile"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/palguna._28" aria-label="I Made Palguna Widiarsana Instagram Profile"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
