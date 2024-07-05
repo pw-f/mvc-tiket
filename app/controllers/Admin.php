@@ -194,7 +194,7 @@ class Admin extends AdminController
         }
 
         $data = [
-            'pemesanan' => $detailedOrders
+            'pemesanan' => array_reverse($detailedOrders)
         ];
 
         $this->render('admin/pemesanan/index', $data);
@@ -307,14 +307,28 @@ class Admin extends AdminController
         ];
         $this->model('Tiket_dipesan_model')->update_local_qr($data);
 
-        //update googledrive path google_drive_file_id
-        // $googledrivepath = GoogleDriveApi::uploadFile($filePath) . $fileName; //salah
-
-        // Generate the QR code
-        // QR_ECLEVEL_L is the error correction level, 4 is the QR code size
         QRcode::png($ticketCode, $filePath, QR_ECLEVEL_L, 4);
+        // Upload to ImageKit
+        $uploadResponse = uploadToImageKit($filePath, $fileName);
 
-        return $filePath;
+        if ($uploadResponse) {
+            $onlineUrl = $uploadResponse->result->url;
+
+            // Update online QR code URL in the database
+            $data = [
+                'id' => $tiket['id'],
+                'link_qr' => $onlineUrl
+            ];
+            $this->model('Tiket_dipesan_model')->update_online_qr($data);
+
+            return $onlineUrl;
+        } else {
+            // Handle upload error
+            error_log("ImageKit upload error: " . $uploadResponse->error->message);
+            return null;
+        }
+
+        // return $filePath;
     }
 
 
@@ -326,27 +340,24 @@ class Admin extends AdminController
         
         foreach ($ticketCodes as $code) {
             $qrCodePath = $this->generateQRCode($code);
-            $qrCodeData = base64_encode(file_get_contents($qrCodePath));
-            $qrCodeSrc = 'data:image/png;base64,' . $qrCodeData;
+            // $qrCodeData = base64_encode(file_get_contents($qrCodePath));
+            // $qrCodeSrc = 'data:image/png;base64,' . $qrCodeData;
             
             $message .= "<p>$code</p>";
-            $message .= "<img src='$qrCodeSrc' alt='$code' /><br />";
+            $message .= "<img src='$qrCodePath' alt='$code' /><br />";
         }
 
         $mailer = new Mailer();
-        // Contoh penggunaan di dalam controller
+
         $to = $email;
         $body = $message;
 
-        // dd($body);
 
         if ($mailer->send($to, $subject, $body)) {
             Flasher::set_user('Pemesanan berhasil!, Email sent successfully!');
         } else {
             Flasher::set_user('Pemesanan gagal!, Failed to send email!');
         }
-        // Send email logic here
-        // mail($email, $subject, $message);
     }
     /**
      * end part of pemesanan
@@ -358,16 +369,34 @@ class Admin extends AdminController
     public function history_pemesanan()
     {
         $history_pemesanan = $this->model('Tiket_dipesan_model')->getAll();
-        // $pemesanan = $this->model('Tiket_dipesan_model')->detail();
-        // $users = $this->model('Auth_model')->user_by_id($pemesanan['id_users']);
+
+        $detailedOrders = [];
+
+        foreach ($history_pemesanan as $order) {
+            $pemesanan = $this->model('Pemesanan_model')->detail($order['id_pemesanan']);
+            $user = $this->model('Auth_model')->user_by_id($pemesanan['id_users']);
+            $destinasi = $this->model('Destination_model')->detail($pemesanan['id_destinasi']);
+            $tiket = $this->model('Tiket_model')->detail($pemesanan['id_tiket']);
+
+            $detailedOrders[] = [
+                'id' => $order['id'],
+                'nama_user' => $user['nama'],
+                'nama_destinasi' => $destinasi['nama_destinasi'],
+                'nama_tiket' => $tiket['nama_tiket'],
+                'kode_tiket' => $order['kode_tiket'],
+                'status_tiket' => $pemesanan['status_tiket'],
+                'link_qr' => $order['link_qr']
+            ];
+        }
+
         $data = [
             'history_pemesanan' => $history_pemesanan,
-            // 'user' => $users
+            'pemesanan' => array_reverse($detailedOrders)
         ];
-        dd($data);
-        
+
         $this->render('admin/pemesanan/history', $data);
     }
+
     /**
      * end part of history pemesanan
      */

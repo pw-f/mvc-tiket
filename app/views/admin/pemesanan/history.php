@@ -7,7 +7,7 @@
     <div class="col-lg-12 mt-3">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Kelola Pesanan User</h4>
+                <h4 class="card-title">Riwayat Pesanan User</h4>
                 <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for users names.." class=" col-6 form-control mt-2">
             </div>
             <div class="card-body">
@@ -19,23 +19,22 @@
                                 <th>Nama User</th>
                                 <th>Nama Destinasi</th>
                                 <th>Nama Tiket</th>
-                                <th>Qty</th>
-                                <th>Total</th>
+                                <th>Kode Tiket</th>
+                                <th>QR Code</th>
                                 <th>Status</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 1; ?>
-                            <?php foreach ($data['history_pemesanan'] as $item) : ?>
+                            <?php foreach ($data['pemesanan'] as $item) : ?>
                                 <tr>
                                     <th scope="row"><?= $i ?></th>
                                     <?php $i++; ?>
                                     <td><?= $item['nama_user'] ?></td>
                                     <td><?= $item['nama_destinasi'] ?></td>
-                                    <td><?= $item['tiket_dipesan'] ?></td>
-                                    <td><?= $item['jumlah_tiket_qty'] ?></td>
-                                    <td><?= $item['total_bayar'] ?></td>
+                                    <td><?= $item['nama_tiket'] ?></td>
+                                    <td><?= $item['kode_tiket'] ?></td>
+                                    <td><a href="<?= $item['link_qr'] ?>" target="_blank">View QR Code</a></td>
                                     <td>
                                         <?php if ($item['status_tiket'] == "menunggu pembayaran") : ?>
                                             <span class="badge badge-primary"><?= $item['status_tiket'] ?></span>
@@ -46,11 +45,6 @@
                                         <?php elseif ($item['status_tiket'] == "diterima") : ?>
                                             <span class="badge badge-success"><?= $item['status_tiket'] ?></span>
                                         <?php endif ?>
-                                    </td>
-                                    <td>
-                                        <span class="d-flex">
-                                            <a href="<?= BASEURL ?>/admin/pemesanan_detail/<?= $item['id'] ?>" class="mr-2" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="mdi mdi-eye color-muted btn btn-sm btn-info"></i></a>
-                                        </span>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

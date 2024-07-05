@@ -51,4 +51,12 @@ class Tiket_dipesan_model
         $this->db->bind('kode_tiket', $kode_tiket);
         return $this->db->single();
     }
+
+    public function update_online_qr($data)
+    {
+        $this->db->query('UPDATE ' . $this->table . ' SET link_qr = :link_qr WHERE id = :id');
+        $this->db->bind('link_qr', $data['link_qr']);
+        $this->db->bind('id', $data['id']);
+        $this->db->execute();
+    }
 }
